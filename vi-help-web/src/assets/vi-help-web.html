@@ -1,0 +1,600 @@
+<!doctype html>
+<!-- saved from url=(0027)http://localhost:5173/#hero -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="module">
+      import { injectIntoGlobalHook } from "/@react-refresh";
+      injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+    </script>
+
+    <script type="module" src="./vi-help-web_files/client"></script>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="http://localhost:5173/favicon.svg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vi-help-web</title>
+    <style
+      type="text/css"
+      data-vite-dev-id="C:/Users/Asus/OneDrive/Desktop/VIHelp/new web/vi-help-web/src/styles.css"
+    >
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #020617;
+        color: #e2e8f0;
+        overflow-x: hidden;
+        padding-top: 80px;
+      }
+
+      /* CONTAINER */
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 40px;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(2, 6, 23, 0.7);
+        backdrop-filter: blur(12px);
+        padding: 15px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        height: 50px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        color: #cbd5f5;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: white;
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+      }
+
+      /* HERO */
+      .hero-dark {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: radial-gradient(circle at top, #0f172a, #020617);
+        position: relative;
+      }
+
+      .hero-dark h1 {
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+
+      .hero-dark span {
+        color: #6366f1;
+        text-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+      }
+
+      .hero-dark p {
+        color: #cbd5f5;
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      .hero-proof {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #94a3b8;
+      }
+
+      .btn-primary {
+        margin-top: 30px;
+        padding: 14px 28px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* PARTICLES */
+      .hero-dark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(white 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.08;
+        animation: moveStars 60s linear infinite;
+        pointer-events: none;
+      }
+
+      @keyframes moveStars {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-200px);
+        }
+      }
+
+      /* SECTION */
+      .section {
+        padding: 120px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        scroll-margin-top: 100px;
+      }
+
+      .section h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+      }
+
+      /* PROTOTYPE */
+      .prototype-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .prototype-list {
+        margin-top: 20px;
+        padding-left: 20px;
+      }
+
+      .prototype-list li {
+        margin-bottom: 10px;
+        color: #cbd5f5;
+      }
+
+      .product img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+      }
+
+      /* FEATURES */
+      .features {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        background: #0f172a;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        flex: 1;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(99, 102, 241, 0.4);
+      }
+
+      /* FLOW */
+      .flow-premium {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 80px;
+        position: relative;
+      }
+
+      .flow-step {
+        text-align: center;
+        flex: 1;
+        position: relative;
+      }
+
+      .glow-circle {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        box-shadow:
+          0 0 20px rgba(99, 102, 241, 0.6),
+          0 0 40px rgba(139, 92, 246, 0.4);
+        animation: pulse 2.5s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+      }
+
+      .flow-line {
+        position: absolute;
+        top: 40px;
+        right: -50%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #6366f1, transparent);
+        animation: flowMove 2s linear infinite;
+      }
+
+      @keyframes flowMove {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .step-label {
+        font-size: 12px;
+        color: #6366f1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      /* TEAM */
+      .team {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .member {
+        background: #0f172a;
+        padding: 20px;
+        border-radius: 16px;
+        text-align: center;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .member:hover {
+        transform: translateY(-5px);
+      }
+
+      .member-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(2, 6, 23, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px;
+        transform: translateY(100%);
+        transition: 0.3s ease;
+        font-size: 14px;
+        color: #94a3b8;
+        text-align: center;
+      }
+
+      .member:hover .member-overlay {
+        transform: translateY(0);
+      }
+
+      .avatar {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      /* CONTACT */
+      .contact-container {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .contact-info {
+        max-width: 400px;
+      }
+
+      .contact-info p {
+        margin-bottom: 20px;
+      }
+
+      .contact-info a {
+        color: #8b8bff;
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-subtext {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #94a3b8;
+      }
+
+      /* FINAL CTA */
+      .final-cta {
+        text-align: center;
+      }
+
+      .section-subtext {
+        color: #94a3b8;
+        margin-bottom: 30px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .prototype-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .flow-premium {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .flow-line {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <nav class="navbar">
+        <div class="nav-container">
+          <img class="logo" src="./vi-help-web_files/logo.jpg" />
+          <div class="nav-links">
+            <a href="#hero">Home</a><a href="#prototype">Prototype</a
+            ><a href="#features">Features</a><a href="#team">Team</a
+            ><a href="#reach">Contact</a>
+          </div>
+        </div>
+      </nav>
+      <section id="hero" class="hero-dark">
+        <div class="container">
+          <h1>
+            VI Help -
+            <span>A Real-time AI guidance for the visually impaired</span>
+          </h1>
+          <p>
+            See the world through AI — delivered instantly through voice. <br />
+          </p>
+          <br />
+          <div class="container">
+            <h2 class="big-text">
+              Independence shouldn’t depend on affordability.
+            </h2>
+            <p class="section-subtext">
+              VI Help is building accessible AI for those who need it most.
+            </p>
+          </div>
+          <a href="http://localhost:5173/#contact" class="btn-primary"
+            >Get Early Access</a
+          >
+        </div>
+      </section>
+      <section id="about" class="section">
+        <div class="container about">
+          <h2>What is VI Help?</h2>
+          <p class="big-text">
+            VI Help enables visually impaired individuals to navigate the world
+            independently using real-time AI-powered audio feedback.
+          </p>
+          <p>
+            A wearable camera captures the environment, sends it to a mobile
+            app, and converts it into meaningful voice guidance — instantly.
+          </p>
+        </div>
+      </section>
+      <section id="prototype" class="section">
+        <div class="container prototype-grid">
+          <div>
+            <h2>Our Technology</h2>
+            <ul class="prototype-list">
+              <li>Wearable camera captures real-time video</li>
+              <li>Mobile app processes the feed using AI</li>
+              <li>Instant voice feedback through earpiece</li>
+            </ul>
+          </div>
+          <div class="product">
+            <img alt="Prototype" src="./vi-help-web_files/prototype.jpeg" />
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <h2>How VI Help Works</h2>
+          <div class="flow-premium">
+            <div class="flow-step">
+              <div class="glow-circle">📷</div>
+              <p class="step-label">Capture</p>
+              <h3>Wearable Camera</h3>
+              <p>Captures your surroundings instantly</p>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-step">
+              <div class="glow-circle">📱</div>
+              <p class="step-label">Transmit</p>
+              <h3>Mobile App</h3>
+              <p>Receives live video feed</p>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-step">
+              <div class="glow-circle">🧠</div>
+              <p class="step-label">Analyze</p>
+              <h3>AI Processing</h3>
+              <p>Understands your environment in real time</p>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-step">
+              <div class="glow-circle">🎧</div>
+              <p class="step-label">Guide</p>
+              <h3>Audio Output</h3>
+              <p>Guides user through voice</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="features" class="section">
+        <div class="container">
+          <h2>Core Features</h2>
+          <div class="features">
+            <div class="card">
+              <h3>Object Detection</h3>
+              <p>Detects objects and surroundings instantly</p>
+            </div>
+            <div class="card">
+              <h3>Distance Awareness</h3>
+              <p>Understands how close or far objects are</p>
+            </div>
+            <div class="card">
+              <h3>Voice Feedback</h3>
+              <p>Delivers clear, real-time audio guidance</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="why-it-matters" class="section">
+        <div class="container why">
+          <h2>Why it matters</h2>
+          <p class="big-text">
+            Millions of visually impaired individuals lack access to affordable
+            assistive technology.
+          </p>
+          <div class="why-card">
+            <h3>Lack of Accessible Technology</h3>
+            <p>
+              Many assistive solutions are expensive or unavailable in regions
+              like Bhutan.
+            </p>
+          </div>
+          <div class="why-card">
+            <h3>Everyday Navigation is Difficult</h3>
+            <p>
+              Simple tasks like walking outdoors or identifying objects require
+              assistance.
+            </p>
+          </div>
+          <div class="why-card">
+            <h3>Our Vision</h3>
+            <p>
+              We aim to make assistive AI affordable, reliable, and accessible
+              for everyone.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <h2>Progress</h2>
+          <ul>
+            <li>✓ Working prototype completed</li>
+            <li>✓ Real-time AI detection validated</li>
+            <li>✓ Voice feedback system implemented</li>
+            <li>✓ Initial funding secured</li>
+          </ul>
+        </div>
+      </section>
+      <section id="team" class="section">
+        <div class="container">
+          <h2>Our Team</h2>
+          <div class="team">
+            <div class="member">
+              <img class="avatar" src="./vi-help-web_files/norbu.png" />
+              <h3>Norbu Gyeltshen</h3>
+              <p>Founder &amp; Chief Product Officer</p>
+              <div class="member-overlay">
+                <p>Product &amp; Embedded Systems</p>
+              </div>
+            </div>
+            <div class="member">
+              <img class="avatar" src="./vi-help-web_files/tshewang.jpg" />
+              <h3>Tshewang Yeshi</h3>
+              <p>Co-founder &amp; Chief Technical Officer</p>
+              <div class="member-overlay"><p>AI &amp; Backend Systems</p></div>
+            </div>
+            <div class="member">
+              <img class="avatar" src="./vi-help-web_files/sangay.png" />
+              <h3>Sangay Wangmo</h3>
+              <p>Business Analyst/ Operations Lead</p>
+              <div class="member-overlay"><p>Strategy &amp; Operations</p></div>
+            </div>
+            <div class="member">
+              <img class="avatar" src="./vi-help-web_files/dechen.png" />
+              <h3>Dechen Pelmo</h3>
+              <p>Business Analyst/ Marketing Lead</p>
+              <div class="member-overlay">
+                <p>Market Research &amp; Outreach</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section">
+        <br />
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p class="contact-subtext">
+            Interested in collaborating, testing, or supporting VI Help? Reach
+            out directly.
+          </p>
+          <div class="contact-container">
+            <div class="contact-info">
+              <p>
+                <strong>Email</strong><br /><a href="mailto:vihelp.ai@gmail.com"
+                  >vihelp.ai@gmail.com</a
+                >
+              </p>
+              <p>
+                <strong>Phone</strong><br /><a href="tel:+97517263821"
+                  >+975 17263821</a
+                >
+              </p>
+              <p>
+                <strong>Location</strong><br />BITC Center, Thimphu TechPark
+                Limited<br />Wangchutaba Thimphu, Bhutan
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>© 2026 VI Help. All rights reserved</footer>
+    </div>
+    <script type="module" src="./vi-help-web_files/main.jsx"></script>
+  </body>
+</html>
