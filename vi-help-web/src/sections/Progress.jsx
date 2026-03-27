@@ -1,6 +1,6 @@
 export default function Progress() {
   return (
-    <section className="section">
+    <section id="progress" className="section">
       <div className="container">
         <h2>Progress</h2>
 

@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="contact" className="section">
+    <section id="about" className="section">
       <div className="container about">
         <h2>What is VI Help?</h2>
 
