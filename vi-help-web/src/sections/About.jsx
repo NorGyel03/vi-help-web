@@ -2,10 +2,10 @@ export default function About() {
   return (
     <section id="about" className="section">
       <div className="container about">
-        <h2>What is VI Help?</h2>
+        <h2>What is VIHelp?</h2>
 
         <p className="big-text">
-          VI Help enables visually impaired individuals to navigate the world
+          VIHelp enables visually impaired individuals to navigate the world
           independently using real-time AI-powered audio feedback.
         </p>
 

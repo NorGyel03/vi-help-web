@@ -7,6 +7,7 @@ export default function Why() {
           Millions of visually impaired individuals lack access to affordable
           assistive technology.
         </p>
+        <br></br>
 
         <div className="why-card">
           <h3>Lack of Accessible Technology</h3>
@@ -14,6 +15,7 @@ export default function Why() {
             Many assistive solutions are expensive or unavailable in regions
             like Bhutan.
           </p>
+          <br></br>
         </div>
 
         <div className="why-card">
@@ -22,6 +24,7 @@ export default function Why() {
             Simple tasks like walking outdoors or identifying objects require
             assistance.
           </p>
+          <br></br>
         </div>
 
         <div className="why-card">

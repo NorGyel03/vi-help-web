@@ -7,7 +7,7 @@ export default function Contact() {
         <h2>Contact Us</h2>
 
         <p className="contact-subtext">
-          Interested in collaborating, testing, or supporting VI Help? Reach out
+          Interested in collaborating, testing, or supporting VIHelp? Reach out
           directly.
         </p>
 

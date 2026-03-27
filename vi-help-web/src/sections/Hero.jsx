@@ -13,7 +13,7 @@ export default function Hero() {
     <section id="hero" className="hero-dark">
       <div className="container">
         <h1>
-          VI Help -{" "}
+          VIHelp -{" "}
           <span>A Real-time AI guidance for the visually impaired</span>
         </h1>
 
@@ -29,7 +29,7 @@ export default function Hero() {
           </h2>
 
           <p className="section-subtext">
-            VI Help is building accessible AI for those who need it most.
+            VIHelp is building accessible AI for those who need it most.
           </p>
         </div>
 

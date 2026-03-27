@@ -6,8 +6,11 @@ export default function Progress() {
 
         <ul>
           <li>✓ Working prototype completed</li>
+          <br></br>
           <li>✓ Real-time AI detection validated</li>
+          <br></br>
           <li>✓ Voice feedback system implemented</li>
+          <br></br>
           <li>✓ Initial funding secured</li>
         </ul>
       </div>

@@ -29,7 +29,7 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="section">
       <div className="container">
-        <h2>How VI Help Works</h2>
+        <h2>How VIHelp Works</h2>
 
         <div className="flow-premium">
           {steps.map((step, i) => (

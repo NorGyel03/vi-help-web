@@ -9,7 +9,9 @@ export default function Prototype() {
 
           <ul className="prototype-list">
             <li>Wearable camera captures real-time video</li>
+            <br></br>
             <li>Mobile app processes the feed using AI</li>
+            <br></br>
             <li>Instant voice feedback through earpiece</li>
           </ul>
         </div>
