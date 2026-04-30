@@ -19,14 +19,14 @@ export default function Team() {
     },
     {
       name: "Sangay Wangmo",
-      role: "Business Analyst/ Operations Lead",
-      info: "Strategy & Operations",
+      role: "Business Analyst",
+      info: "Market Research & Outreach",
       image: sangay,
     },
     {
       name: "Dechen Pelmo",
-      role: "Business Analyst/ Marketing Lead",
-      info: "Market Research & Outreach",
+      role: "Operations Manager",
+      info: "Strategy and Operations",
       image: dechen,
     },
   ];
