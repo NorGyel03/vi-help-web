@@ -1,23 +1,68 @@
 import prototype from "../assets/prototype.jpeg";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
-export default function Prototype() {
+const tech = [
+  {
+    icon: "📷",
+    title: "Wearable Camera",
+    desc: "Lightweight camera clips onto glasses or a lanyard, capturing your environment in real time.",
+  },
+  {
+    icon: "📱",
+    title: "Mobile AI App",
+    desc: "Our Android app receives the live feed and runs computer vision models on-device and in the cloud.",
+  },
+  {
+    icon: "🧠",
+    title: "AI Scene Understanding",
+    desc: "Powered by large vision models that detect objects, read text, identify people, and understand context.",
+  },
+  {
+    icon: "🎧",
+    title: "Instant Voice Feedback",
+    desc: "Clear, natural-language audio descriptions delivered through a Bluetooth earpiece within seconds.",
+  },
+];
+
+export default function Technology() {
+  const leftRef = useScrollAnimation();
+  const rightRef = useScrollAnimation();
+
   return (
     <section id="prototype" className="section">
-      <div className="container prototype-grid">
-        <div>
-          <h2>Our Technology</h2>
+      <div className="container">
+        <div className="tech-grid">
+          {/* Image */}
+          <div className="tech-image fade-left" ref={leftRef}>
+            <div className="tech-image-glow" />
+            <img src={prototype} alt="VIHelp prototype device" />
+          </div>
 
-          <ul className="prototype-list">
-            <li>Wearable camera captures real-time video</li>
-            <br></br>
-            <li>Mobile app processes the feed using AI</li>
-            <br></br>
-            <li>Instant voice feedback through earpiece</li>
-          </ul>
-        </div>
+          {/* Content */}
+          <div className="fade-right" ref={rightRef}>
+            <span className="section-label">Technology</span>
+            <h2 className="section-title">
+              How our system
+              <br />
+              <span className="gradient-text">sees for you</span>
+            </h2>
+            <p className="section-subtitle" style={{ marginBottom: "0" }}>
+              Four components working in perfect harmony to turn visual
+              information into instant guidance.
+            </p>
 
-        <div className="product">
-          <img src={prototype} alt="Prototype" />
+            <ul className="tech-list">
+              {tech.map((item, i) => (
+                <li className="tech-list-item" key={i}>
+                  <div className="tech-icon">{item.icon}</div>
+                  <div>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
