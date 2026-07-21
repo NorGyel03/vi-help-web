@@ -1,29 +1,19 @@
 import { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
-/**
- * EMAILJS SETUP (Free — no backend needed)
- * ─────────────────────────────────────────
- * 1. Create a free account at https://www.emailjs.com
- * 2. Add an Email Service (Gmail recommended) → copy your SERVICE_ID
- * 3. Create an Email Template with these variables:
- *       {{from_name}}, {{from_email}}, {{subject}}, {{message}}
- *    → copy your TEMPLATE_ID
- * 4. Go to Account → Public Key → copy your PUBLIC_KEY
- * 5. Replace the three placeholder values below.
- */
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+// Update this to your deployed backend URL in production.
+// For local dev this works as-is (Vite runs on :5173, backend on :3001).
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 export default function Contact() {
   const [form, setForm] = useState({
-    from_name: "",
-    from_email: "",
+    name: "",
+    email: "",
     subject: "",
     message: "",
   });
   const [status, setStatus] = useState(null); // null | 'sending' | 'success' | 'error'
+  const [errorMsg, setErrorMsg] = useState("");
 
   const headerRef = useScrollAnimation();
   const leftRef = useScrollAnimation();
@@ -36,27 +26,27 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
+    setErrorMsg("");
 
     try {
-      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      const res = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: { ...form },
-        }),
+        body: JSON.stringify(form),
       });
 
-      if (res.ok) {
+      const data = await res.json();
+
+      if (res.ok && data.success) {
         setStatus("success");
-        setForm({ from_name: "", from_email: "", subject: "", message: "" });
+        setForm({ name: "", email: "", subject: "", message: "" });
       } else {
         setStatus("error");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
       }
     } catch {
       setStatus("error");
+      setErrorMsg("Could not connect to the server. Please email us directly.");
     }
   };
 
@@ -118,25 +108,25 @@ export default function Contact() {
           <form className="contact-form fade-right" ref={rightRef} onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="from_name">Your Name</label>
+                <label htmlFor="name">Your Name</label>
                 <input
                   type="text"
-                  id="from_name"
-                  name="from_name"
+                  id="name"
+                  name="name"
                   placeholder="Norbu Gyeltshen"
-                  value={form.from_name}
+                  value={form.name}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="from_email">Email Address</label>
+                <label htmlFor="email">Email Address</label>
                 <input
                   type="email"
-                  id="from_email"
-                  name="from_email"
+                  id="email"
+                  name="email"
                   placeholder="norbu@example.com"
-                  value={form.from_email}
+                  value={form.email}
                   onChange={handleChange}
                   required
                 />
@@ -161,7 +151,7 @@ export default function Contact() {
               <textarea
                 id="message"
                 name="message"
-                placeholder="Tell us how you'd like to work with VIHelp..."
+                placeholder="Tell us how you'd like to work with VIHelp…"
                 value={form.message}
                 onChange={handleChange}
                 required
@@ -173,24 +163,17 @@ export default function Contact() {
               className="form-submit"
               disabled={status === "sending"}
             >
-              {status === "sending" ? "Sending…" : "Send Message"}
+              {status === "sending" ? "Sending…" : "Send Message →"}
             </button>
 
             {status === "success" && (
               <div className="form-message success">
-                ✅ Message sent! We'll get back to you soon.
+                ✅ Message sent! We'll get back to you within 1–2 business days.
               </div>
             )}
             {status === "error" && (
               <div className="form-message error">
-                ❌ Something went wrong. Please email us directly at vihelp.ai@gmail.com
-              </div>
-            )}
-
-            {/* Setup reminder — remove once EmailJS is configured */}
-            {EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY" && (
-              <div className="form-message" style={{ background: "rgba(234,179,8,0.12)", border: "1px solid rgba(234,179,8,0.3)", color: "#fde68a", marginTop: "12px" }}>
-                ⚠️ EmailJS not yet configured. See the comment at the top of Contact.jsx to set it up.
+                ❌ {errorMsg}
               </div>
             )}
           </form>
